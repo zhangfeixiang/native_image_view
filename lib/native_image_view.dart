@@ -3,8 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 class NativeImageView extends StatefulWidget {
-  const NativeImageView({Key key, this.url, this.width, this.height})
-      : super(key: key);
+  const NativeImageView({Key? key, required this.url, required this.width, required this.height}) : super(key: key);
   final String url;
   final double width;
   final double height;
@@ -14,9 +13,8 @@ class NativeImageView extends StatefulWidget {
 }
 
 class _NativeImageViewState extends State<NativeImageView> {
-  Uint8List _data;
-  static const MethodChannel _channel =
-      const MethodChannel('com.tencent.game/native_image_view');
+  late Uint8List? _data;
+  static const MethodChannel _channel = const MethodChannel('com.tencent.game/native_image_view');
   @override
   void initState() {
     super.initState();
@@ -37,7 +35,7 @@ class _NativeImageViewState extends State<NativeImageView> {
             height: widget.height,
           )
         : Image.memory(
-            _data,
+            _data!,
             width: widget.width,
             height: widget.height,
             fit: BoxFit.cover,
