@@ -13,7 +13,7 @@ class NativeImageView extends StatefulWidget {
 }
 
 class _NativeImageViewState extends State<NativeImageView> {
-  late Uint8List? _data;
+  Uint8List? _data;
   static const MethodChannel _channel = const MethodChannel('com.tencent.game/native_image_view');
   @override
   void initState() {
